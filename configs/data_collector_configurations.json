@@ -1,0 +1,65 @@
+{
+    "default": {
+        "product_ids": [
+            "BTC-USDT",
+            "ETH-USDT",
+            "ETH-BTC",
+            "DOT-USDT",
+            "DOT-BTC"
+        ],
+        "stop_program": 0,
+        "rest_url": "https://api.exchange.coinbase.com",
+        "websocket_url": "wss://ws-feed.exchange.coinbase.com",
+        "database_name": "cryptocurrency_coinbase",
+        "current_version": "1.1",
+        "current_version_retries": 0,
+        "backup_collections": [
+            "full",
+            "orderbook"
+        ],
+        "backup_overwrite_collections": [],
+        "backup_compression_type_options": ["zstd", "lzma", "lzma2"],
+        "backup_compression_type": "zstd",
+        "temp_folder": "temp",
+        "temp_backup_folder": "temp/backups",
+        "backup_info_db_path": "dbs/data_collector_db.json",
+        "crash_info_db_path": "dbs/crash_info_db.json",
+        "db_path": "main_db",
+        "database_type": "simple"
+    },
+    "development": {
+        "is_production": false,
+        "snapshot_interval_seconds": 15,
+        "safe_margin_interval": 7 ,
+        "stream_backup_interval": "every_minute",
+        "snapshot_backup_interval": "every_minute",
+        "update_interval": "every_minute"
+    },
+    "production": {
+        "is_production": true,
+        "snapshot_interval_minutes": 15,
+        "safe_margin_interval": 30,
+        "stream_backup_interval": "every_day",
+        "snapshot_backup_interval": "every_day",
+        "update_interval": "every_hour"
+    },
+    "localBackup": {
+        "backup_type": "local",
+        "backup_folder_path": "C:\\Uni_Freiburg\\bts_db_backup\\Data",
+        "backup_overwrite_folder_path": "C:\\Uni_Freiburg\\bts_db_backup\\Metadata"
+    },
+    "awsBackup": {
+        "backup_type": "aws",
+        "s3_bucket_name": "tradedatacollects3",
+        "backup_folder_path": "Trader_Data/Exchange_Data/Coinbase_Data/Data",
+        "backup_overwrite_folder_path": "Trader_Data/Exchange_Data/Coinbase_Data/Metadata"
+    },
+    "mongodb": {
+        "database_type": "mongodb",
+        "mongo_url": "mongodb://localhost:27017/"
+    },
+    "awsDocumentDB": {
+        "database_type": "documentdb",
+        "sslCAFile": "aws/keys/rds-combined-ca-bundle.pem"
+    }
+}
